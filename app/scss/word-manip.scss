@@ -1,0 +1,50 @@
+%center{text-align:center;}
+
+html{
+	font-size: 18px;
+}
+
+body{
+	width:100%;
+	height:100%;	
+}
+
+#container{
+	@extend body;
+}
+
+#left{
+	width:45%;
+	float:left;
+	border-right: 1px solid black;
+	@extend %center;
+}
+
+#right{
+	width:45%;
+	float:right;
+	@extend %center;
+}
+
+h2{
+	font-size:1rem;
+}
+
+form{
+	@extend h2;
+	font-size: .9rem;
+}
+
+#js-output{
+	padding-top:10px;
+}
+
+input[type=text]{
+	width:50%;
+}
+
+.chart-holder{
+	width: 60%;
+	height: 60%;
+	padding-left: 15%;
+}

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en-US">
+	<head>
+	    <meta charset="utf-8">
+	    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	    <meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Text Manipulation</title>
+	    <link rel="stylesheet" type="text/css" href="./css/word-manip.css">
+	    <script src="./js/js-word-manip.js"></script>
+	    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+	    <script src="./js/jq-word-manip.js"></script>
+	    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.js"></script>
+	</head>
+	<body>
+  		<div id="container">
+  			<div id="left">
+  				<h2>Pure Javascript</h2>
+	    		<input type="text" id="js-word" name="js-word" value="" placeholder="Give me a word or phrase, please :)"/>
+	    		<button type="submit" id="js-submit">Tell Me Something</button>
+	    		<div id="js-output"></div>
+	    		<div class="chart-holder"><canvas id="JSChart" width="400px" height="400px"></canvas></div>
+	  		</div>
+	  		<div id="right">
+	  			<h2>Jquery Version</h2>
+	    		<input type="text" id="jq-word" name="jq-word" value="" placeholder="Give me a word or phrase, please :)"/>
+	    		<button type="submit" id="jq-submit">Tell Me Something</button>
+	    		<div id="jq-output"></div>
+	    		<div class="chart-holder"><canvas id="JQChart" width="400px" height="400px"></canvas></div>
+	  		</div>
+	  	</div>
+	</body>
+</html>
