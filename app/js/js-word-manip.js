@@ -7,6 +7,10 @@ window.addEventListener('load', function() {
 			jsoutput.innerHTML = "The box above is empty and lonely.";
 		}
 		else{
+   			var elements = document.getElementsByClassName("phrase");
+    		while(elements.length > 0){
+        		elements[0].parentNode.removeChild(elements[0]);
+    		}
 			writeInfo(nameValue,jsoutput);
 		}
 	});
@@ -46,16 +50,34 @@ function sortObjAlpha(unsorted){
 function objectToString(string){
 	var printVer;
 	var objletters = string;
-	printVer = JSON.stringify(objletters).replace(/[\{\}\"']+/g, '').replace(/[\:']+/g, ': ').replace(/[\,']+/g, '<br />'); 
+	printVer = JSON.stringify(objletters).replace(/[\{\}\"']+/g, '').replace(/[\:']+/g, ': ').replace(/[\,']+/g, ' '); 
 	return printVer;
+}
+
+function CreateOutputElement(str){
+	var	newpar = document.createElement("p");
+	newpar.setAttribute("class", "jsoutput-text");
+	var t = document.createTextNode(str);
+    newpar.appendChild(t);
+    return newpar;
 }
 
 function writeInfo(word,populate){
 	var nospaceword = word.replace(/[^A-Za-z]/g, '').toLowerCase();
-	var text = "<div class='phrase'>The word or phrase you wrote is: <p class='new-line'>" + word + "</p></div><div class='phrase'>The word or phrase stripped of everything but letters: <p class='new-line'>"+ nospaceword + "</p></div><div class='phrase'>The length of the string is: <p class='new-line'>"+ word.length + "</p></div><div class='phrase'>Is the word or phrase you wrote a palindrome? " + isPalindrome(nospaceword);
-	var totalletters = objectToString(sortObjAlpha(letterCount(nospaceword)));
-	populate.innerHTML = text + "</div><div class='letter-list'>" + totalletters + "</div";
 	
+	var phrase = document.createElement("div");
+	phrase.setAttribute("class", "phrase");
+	phrase.appendChild(CreateOutputElement("The word or phrase you wrote is: "+word));
+	phrase.appendChild(CreateOutputElement("The word or phrase stripped of everything but letters: "+nospaceword));
+	phrase.appendChild(CreateOutputElement("The length of the string is: "+ word.length));
+	phrase.appendChild(CreateOutputElement("Is the word or phrase you wrote a palindrome? " + isPalindrome(nospaceword)));
+	phrase.appendChild(CreateOutputElement("Amount of times each letter is used: "));
+	var totalletters = objectToString(sortObjAlpha(letterCount(nospaceword)));
+	phrase.appendChild(CreateOutputElement(totalletters));
+	var sp2 = document.getElementById("text-placeholder");
+	var parentDiv = sp2.parentNode;
+	parentDiv.insertBefore(phrase, sp2);
+
 	BuildJSChart(letterCount(nospaceword));
 }
 
