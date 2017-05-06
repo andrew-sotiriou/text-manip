@@ -37,6 +37,12 @@ form{
 
 #js-output{
 	padding-top:10px;
+	.phrase{
+		.new-line{
+			margin:0;
+			padding-bottom:10px;
+		}
+	}
 }
 
 input[type=text]{

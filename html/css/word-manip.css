@@ -25,6 +25,9 @@ form {
 
 #js-output {
   padding-top: 10px; }
+  #js-output .phrase .new-line {
+    margin: 0;
+    padding-bottom: 10px; }
 
 input[type=text] {
   width: 50%; }
