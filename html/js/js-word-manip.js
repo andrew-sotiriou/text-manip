@@ -17,9 +17,9 @@ function isPalindrome(ispally){
 	var pallycheck = ispally;
 	var pallylength = ispally.length;
 	for (var i =0; i < Math.floor(pallylength/2); i++){
-		if(pallycheck[i] != pallycheck[pallylength-(i+1)]){return "No, it is not.";}
+		if(pallycheck[i] != pallycheck[pallylength-(i+1)]){return false;}
 	}
-	return "Hooray! We got one!";
+	return true;
 }
 
 //string to object and takes letters and # of occurance to key/name pairs
@@ -52,25 +52,12 @@ function objectToString(string){
 
 function writeInfo(word,populate){
 	var nospaceword = word.replace(/[^A-Za-z]/g, '').toLowerCase();
-	var text = "The word or phrase you wrote is:<br />" + word+ "<br />The word or phrase stripped of everything but letters:<br />"+ nospaceword +"<br />The length of the string is: "+ word.length + "<br />Is the word or phrase you wrote a palindrome? " + isPalindrome(nospaceword);
+	var text = "<div class='phrase'>The word or phrase you wrote is: <p class='new-line'>" + word + "</p></div><div class='phrase'>The word or phrase stripped of everything but letters: <p class='new-line'>"+ nospaceword + "</p></div><div class='phrase'>The length of the string is: <p class='new-line'>"+ word.length + "</p></div><div class='phrase'>Is the word or phrase you wrote a palindrome? " + isPalindrome(nospaceword);
 	var totalletters = objectToString(sortObjAlpha(letterCount(nospaceword)));
-	populate.innerHTML = text + " <br/ >" + totalletters;
+	populate.innerHTML = text + "</div><div class='letter-list'>" + totalletters + "</div";
 	
 	BuildJSChart(letterCount(nospaceword));
 }
-
-/*		function ObjKeyArray(counterObj){
-	var keyArray=[];
-	var valueArray=[];
-	var origObj = counterObj;
-	//keyArray = Objects.keys(origObj);
-	for (var key in origObj) {
-			keyArray.push(key);
-			valueArray.push(origObj[key]);
-	}
-	return keyArray;
-}
-*/
 
 function ObjKeyArray(counterObj){
 	var keyArray=[];
@@ -98,7 +85,7 @@ function BuildJSChart(allArray){
 	var ctx = document.getElementById("JSChart").getContext('2d');
 	if (myChart) {
 		myChart.destroy();
-		}
+	}
 	myChart = new Chart(ctx, {
 		type: 'doughnut',
 	    data: {
@@ -106,7 +93,7 @@ function BuildJSChart(allArray){
 	    	datasets:[{
 	    		label: 'letter value',
 	    		data: valueArray,
-	    		backgroundColor:['red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'violet']
+	    		backgroundColor:['red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'violet', 'pink']
 	    	}]
 	    },
 	    options: {
