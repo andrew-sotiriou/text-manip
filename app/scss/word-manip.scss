@@ -1,6 +1,14 @@
-%center{text-align:center;}
-%nomarg{margin:0;}
+/* Placeholder Selectors */
+%center{
+	text-align:center;
+}
 
+%nomarg{
+	margin:0;
+}
+/* /Placeholder Selectors */
+
+//Start
 html{
 	font-size: 18px;
 }
@@ -15,16 +23,16 @@ body{
 }
 
 #left{
+	@extend %center;
 	width:45%;
 	float:left;
 	border-right: 1px solid black;
-	@extend %center;
 }
 
 #right{
+	@extend %center;
 	width:45%;
 	float:right;
-	@extend %center;
 }
 
 h2{

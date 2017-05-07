@@ -1,9 +1,11 @@
+/* Placeholder Selectors */
 #left, #right {
   text-align: center; }
 
 #js-output .phrase p {
   margin: 0; }
 
+/* /Placeholder Selectors */
 html {
   font-size: 18px; }
 
