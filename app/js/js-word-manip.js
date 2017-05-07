@@ -78,7 +78,7 @@ function writeInfo(word,populate){
 	var parentDiv = sp2.parentNode;
 	parentDiv.insertBefore(phrase, sp2);
 
-	BuildJSChart(letterCount(nospaceword));
+	BuildJSChart(sortObjAlpha(letterCount(nospaceword)));
 }
 
 function ObjKeyArray(counterObj){
@@ -115,7 +115,11 @@ function BuildJSChart(allArray){
 	    	datasets:[{
 	    		label: 'letter value',
 	    		data: valueArray,
-	    		backgroundColor:['red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'violet', 'pink']
+	    		backgroundColor:['rgb(0, 0, 180)', 'rgb(175, 13, 102)', 'rgb(146,248,70)', 'rgb(255, 200, 47)', 'rgb(255,118,0)', 
+	    			'rgb(185,185,185)', 'rgb(235,235,222)', 'rgb(100,100,100)', 'rgb(255,255,0)', 'rgb(55,19,112)', 'rgb(255,255,150)', 
+	    			'rgb(202,62,94)', 'rgb(205,145,63)', 'rgb(12,75,100)', 'rgb(255,0,0)', 'rgb(175,155,50)', 'rgb(0,0,0)', 'rgb(37,70,25)', 
+	    			'rgb121,33,135)', 'rgb(83,140,208)', 'rgb(0,154,37)', 'rgb(178,220,205)', 'rgb(255,152,213)', 'rgb(0,0,74)', 'rgb(175,200,74)', 
+					'rgb(63,25,12)']
 	    	}]
 	    },
 	    options: {
