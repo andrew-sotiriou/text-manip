@@ -2,7 +2,7 @@ var myChart;
 var keyArray=[];
 var valueArray=[];
 
-window.addEventListener('load', function() {
+document.addEventListener('DOMContentLoaded', function(event) {
 	var button = document.querySelector("button#js-submit");
 	button.addEventListener("click", function() {
 		var nameValue = document.getElementById("js-word").value;
