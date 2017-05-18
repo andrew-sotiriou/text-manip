@@ -45,10 +45,12 @@ function sortObjAlpha(unsorted){
 }
 
 //turns into a printable string
-function objectToString(string){
-	var printVer;
-	var objletters = string;
-	printVer = JSON.stringify(objletters).replace(/[\{\}\"']+/g, '').replace(/[\:']+/g, ': ').replace(/[\,']+/g, ' '); 
+function objectToString(obj){
+	var printVer = "";
+	var objletters = obj;
+	Object.keys(objletters).forEach(key => {
+		printVer += key + ": " + objletters[key] + " ";
+	});
 	return printVer;
 }
 
