@@ -17,11 +17,10 @@ window.addEventListener('load', function() {
 })
 
 //Checks for Palindrome
-function isPalindrome(ispally){
-	var pallycheck = ispally;
-	var pallylength = ispally.length;
-	for (var i =0; i < Math.floor(pallylength/2); i++){
-		if(pallycheck[i] != pallycheck[pallylength-(i+1)]){return false;}
+function isPalindrome(string){
+	var reverse = string.split("").reverse().join("");
+	for (var i =0; i < Math.floor(string.length/2); i++){
+		if(string[i] != reverse[i]){return false;}
 	}
 	return true;
 }
