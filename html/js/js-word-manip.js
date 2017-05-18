@@ -1,3 +1,5 @@
+var myChart;
+
 window.addEventListener('load', function() {
 	var button = document.querySelector("button#js-submit");
 	button.addEventListener("click", function() {
@@ -64,7 +66,6 @@ function createOutputElement(str){
 
 function writeInfo(word,populate){
 	var nospaceword = word.replace(/[^A-Za-z]/g, '').toLowerCase();
-	
 	var phrase = document.createElement("div");
 	phrase.setAttribute("class", "phrase");
 	phrase.appendChild(createOutputElement("The word or phrase you wrote is: "+word));
@@ -98,8 +99,6 @@ function objValueArray(counterObj){
 	}
 	return valueArray;
 }
-
-var myChart;
 
 function buildJSChart(allArray){
 	var keyArray = objKeyArray(allArray);
