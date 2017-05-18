@@ -27,13 +27,12 @@ function isPalindrome(string){
 
 //string to object and takes letters and # of occurance to key/name pairs
 function letterCount(str){
-	var ret = {};
+	var amount = {};
 	var len = str.length;
 	while (len--){
-		ret[str[len]] = ret[str[len]] + 1 || 1;
+		amount[str[len]] = amount[str[len]] + 1 || 1;
 	}
-	//console.log(ret);
-	return ret;
+	return amount;
 }
 
 //Sorts Obj by Key 
