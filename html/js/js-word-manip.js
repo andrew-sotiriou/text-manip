@@ -1,4 +1,6 @@
 var myChart;
+var keyArray=[];
+var valueArray=[];
 
 window.addEventListener('load', function() {
 	var button = document.querySelector("button#js-submit");
@@ -31,8 +33,16 @@ function isPalindrome(string){
 function letterCount(str){
 	var amount = {};
 	var len = str.length;
+	//clear the key and value arrays
+	keyArray=[];
+	valueArray=[];
 	while (len--){
 		amount[str[len]] = amount[str[len]] + 1 || 1;
+	}
+	amount = sortObjAlpha(amount);
+	for (var key in amount) {
+		keyArray.push(key);
+		valueArray.push(amount[key]);
 	}
 	return amount;
 }
@@ -73,36 +83,15 @@ function writeInfo(word,populate){
 	phrase.appendChild(createOutputElement("The length of the string is: "+ word.length));
 	phrase.appendChild(createOutputElement("Is the word or phrase you wrote a palindrome? " + isPalindrome(nospaceword)));
 	phrase.appendChild(createOutputElement("Amount of times each letter is used: "));
-	var totalletters = objectToString(sortObjAlpha(letterCount(nospaceword)));
+	var totalletters = objectToString(letterCount(nospaceword));
 	phrase.appendChild(createOutputElement(totalletters));
 	var sp2 = document.getElementById("text-placeholder");
 	var parentDiv = sp2.parentNode;
 	parentDiv.insertBefore(phrase, sp2);
-
-	buildJSChart(sortObjAlpha(letterCount(nospaceword)));
+	buildJSChart();
 }
 
-function objKeyArray(counterObj){
-	var keyArray=[];
-	var origObj = counterObj;
-	for (var key in origObj) {
-			keyArray.push(key);
-	}
-	return keyArray;
-}
-
-function objValueArray(counterObj){
-	var valueArray=[];
-	var origObj = counterObj;
-	for (var key in origObj) {
-			valueArray.push(origObj[key]);
-	}
-	return valueArray;
-}
-
-function buildJSChart(allArray){
-	var keyArray = objKeyArray(allArray);
-	var valueArray = objValueArray(allArray);
+function buildJSChart(){
 	var ctx = document.getElementById("JSChart").getContext('2d');
 	if (myChart) {
 		myChart.destroy();
