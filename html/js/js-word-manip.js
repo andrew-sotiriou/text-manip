@@ -53,7 +53,7 @@ function objectToString(string){
 	return printVer;
 }
 
-function CreateOutputElement(str){
+function createOutputElement(str){
 	var	newpar = document.createElement("p");
 	newpar.setAttribute("class", "jsoutput-text");
 	var t = document.createTextNode(str);
@@ -66,21 +66,21 @@ function writeInfo(word,populate){
 	
 	var phrase = document.createElement("div");
 	phrase.setAttribute("class", "phrase");
-	phrase.appendChild(CreateOutputElement("The word or phrase you wrote is: "+word));
-	phrase.appendChild(CreateOutputElement("The word or phrase stripped of everything but letters: "+nospaceword));
-	phrase.appendChild(CreateOutputElement("The length of the string is: "+ word.length));
-	phrase.appendChild(CreateOutputElement("Is the word or phrase you wrote a palindrome? " + isPalindrome(nospaceword)));
-	phrase.appendChild(CreateOutputElement("Amount of times each letter is used: "));
+	phrase.appendChild(createOutputElement("The word or phrase you wrote is: "+word));
+	phrase.appendChild(createOutputElement("The word or phrase stripped of everything but letters: "+nospaceword));
+	phrase.appendChild(createOutputElement("The length of the string is: "+ word.length));
+	phrase.appendChild(createOutputElement("Is the word or phrase you wrote a palindrome? " + isPalindrome(nospaceword)));
+	phrase.appendChild(createOutputElement("Amount of times each letter is used: "));
 	var totalletters = objectToString(sortObjAlpha(letterCount(nospaceword)));
-	phrase.appendChild(CreateOutputElement(totalletters));
+	phrase.appendChild(createOutputElement(totalletters));
 	var sp2 = document.getElementById("text-placeholder");
 	var parentDiv = sp2.parentNode;
 	parentDiv.insertBefore(phrase, sp2);
 
-	BuildJSChart(sortObjAlpha(letterCount(nospaceword)));
+	buildJSChart(sortObjAlpha(letterCount(nospaceword)));
 }
 
-function ObjKeyArray(counterObj){
+function objKeyArray(counterObj){
 	var keyArray=[];
 	var origObj = counterObj;
 	for (var key in origObj) {
@@ -89,7 +89,7 @@ function ObjKeyArray(counterObj){
 	return keyArray;
 }
 
-function ObjValueArray(counterObj){
+function objValueArray(counterObj){
 	var valueArray=[];
 	var origObj = counterObj;
 	for (var key in origObj) {
@@ -100,9 +100,9 @@ function ObjValueArray(counterObj){
 
 var myChart;
 
-function BuildJSChart(allArray){
-	var keyArray = ObjKeyArray(allArray);
-	var valueArray = ObjValueArray(allArray);
+function buildJSChart(allArray){
+	var keyArray = objKeyArray(allArray);
+	var valueArray = objValueArray(allArray);
 	var ctx = document.getElementById("JSChart").getContext('2d');
 	if (myChart) {
 		myChart.destroy();
