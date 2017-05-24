@@ -9,6 +9,9 @@ document.addEventListener('DOMContentLoaded', function(event) {
 		var jsoutput =  document.getElementById("js-output");
 		if (nameValue.length==0 || nameValue == null){
 			jsoutput.innerHTML = "The box above is empty and lonely.";
+			if (myChart) {
+				myChart.destroy();
+			}
 		}
 		else{
    			var elements = document.getElementsByClassName("phrase");
