@@ -2,7 +2,7 @@
 #left, #right {
   text-align: center; }
 
-#js-output .phrase p {
+#js-output .phrase p, #jq-output .phrase p {
   margin: 0; }
 
 /* /Placeholder Selectors */
@@ -28,9 +28,9 @@ h2, form {
 form {
   font-size: .9rem; }
 
-#js-output {
+#js-output, #jq-output {
   padding-top: 20px; }
-  #js-output .phrase p {
+  #js-output .phrase p, #jq-output .phrase p {
     padding-bottom: 10px;
     text-align: left; }
 
