@@ -6,6 +6,12 @@
 %nomarg{
 	margin:0;
 }
+
+%outputP{
+	@extend %nomarg;
+	padding-bottom:10px;
+	text-align: left;	
+}
 /* /Placeholder Selectors */
 
 //Start
@@ -44,15 +50,22 @@ form{
 	font-size: .9rem;
 }
 
-#js-output, #jq-output{
+#js-output{
 	padding-top:20px;
 	.phrase{
 		p{
-			@extend %nomarg;
-			padding-bottom:10px;
-			text-align: left;
+			@extend %outputP;
 		}
 	}
+}
+
+#jq-output{
+	padding-top:20px;
+	.jq-phrase{
+		p{
+			@extend %outputP;
+		}
+	}	
 }
 
 p{

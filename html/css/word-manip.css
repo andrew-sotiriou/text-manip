@@ -2,8 +2,12 @@
 #left, #right {
   text-align: center; }
 
-#js-output .phrase p, #jq-output .phrase p {
+#js-output .phrase p, #jq-output .jq-phrase p {
   margin: 0; }
+
+#js-output .phrase p, #jq-output .jq-phrase p {
+  padding-bottom: 10px;
+  text-align: left; }
 
 /* /Placeholder Selectors */
 html {
@@ -28,11 +32,11 @@ h2, form {
 form {
   font-size: .9rem; }
 
-#js-output, #jq-output {
+#js-output {
   padding-top: 20px; }
-  #js-output .phrase p, #jq-output .phrase p {
-    padding-bottom: 10px;
-    text-align: left; }
+
+#jq-output {
+  padding-top: 20px; }
 
 p {
   padding-left: 5%; }
