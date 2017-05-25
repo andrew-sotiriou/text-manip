@@ -2,9 +2,9 @@
 var origWord,
 	stripeWord,
 	reversed,
-	myChart,
-	keyArray=[],
-	valueArray=[],
+	myChartJQ,
+	keyArrayJQ=[],
+	valueArrayJQ=[],
 	$displayOut = $("<div/>").attr("class","phrase");
 
 function displayInfo(){
