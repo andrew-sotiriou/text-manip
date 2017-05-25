@@ -64,7 +64,6 @@ function buildJQChart(){
 	    data: {
 	    	labels: keyArrayJQ,
 	    	datasets:[{
-	    		label: 'Horizontal Bar Chart of Letters',
 	    		data: valueArrayJQ,
 	    		backgroundColor:['rgb(0, 0, 180)', 'rgb(175, 13, 102)', 'rgb(146,248,70)', 'rgb(255, 200, 47)', 'rgb(255,118,0)', 
 	    			'rgb(185,185,185)', 'rgb(235,235,222)', 'rgb(100,100,100)', 'rgb(255,255,0)', 'rgb(55,19,112)', 'rgb(255,255,150)', 
@@ -74,6 +73,13 @@ function buildJQChart(){
 	    	}]
 	    },
 	    options: {
+	    	legend: {
+	    		display: false
+	    	},
+	    	title: {
+	    		display: true,
+	    		text: 'Horizontal Bar Chart'
+	    	},
 			scales: {
 				xAxes: [{
 				    stacked: true,
