@@ -1,6 +1,11 @@
 Github Pages URL:
 https://andrew-sotiriou.github.io/text-manip/html/
 
+Version 2:
+Added initial commit of JQ version which will do the same as the JS version
+Only visual difference is displaying a horizontal bar chart instead of a doughnut
+Both sides are now working.
+
 Version 1:
 
 Initial Commit:
