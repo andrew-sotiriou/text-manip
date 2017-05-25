@@ -5,7 +5,7 @@ var origWord,
 	myChartJQ,
 	keyArrayJQ=[],
 	valueArrayJQ=[],
-	$displayOut = $("<div/>").attr("class","phrase");
+	$displayOut = $("<div/>").attr("class","jq-phrase");
 
 function displayInfo(){
 	origWord = $('#jq-word').val().toLowerCase();
@@ -37,11 +37,11 @@ function isPala(){
 $(document).ready(function(){
 	$('#jq-submit').click(function(){
 		if ( ($('#jq-word').val() != 0) && ($('#jq-word').val().length != 0) ){
-			$("#jq-output .phrase").empty();
+			$("#jq-output .jq-phrase").empty();
 			displayInfo();
 		}
 		else{
-			$$("#jq-output .phrase").empty();
+			$$("#jq-output .jq-phrase").empty();
 			$("#jq-output").append("The box above is empty and lonely.");
 		}
 	});
