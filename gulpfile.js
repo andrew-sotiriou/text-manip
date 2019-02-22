@@ -24,16 +24,25 @@ gulp.task('scripts', function() {
   }))
 });
 
-gulp.task('watch', ['browserSync', 'sass', 'move-html', 'scripts'], function (){
+gulp.task('watch', ['browserSync', 'sass', 'move-html', 'move-images', 'scripts'], function (){
   gulp.watch('app/scss/*.scss', ['sass']); 
   gulp.watch('app/js/*.js', ['scripts']); 
   gulp.watch('app/index.html', ['move-html']); 
+  gulp.watch('app/images/*.*', ['move-images']); 
   // Other watchers
 })
 
 gulp.task('move-html', function(){
   return gulp.src('app/index.html')
     .pipe(gulp.dest('html'))
+    .pipe(browserSync.reload({
+      stream: true
+    }))
+});
+
+gulp.task('move-images', function(){
+  return gulp.src('app/images/*.*')
+    .pipe(gulp.dest('html/images'))
     .pipe(browserSync.reload({
       stream: true
     }))
