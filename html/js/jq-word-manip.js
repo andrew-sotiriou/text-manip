@@ -104,7 +104,7 @@ function buildJQChart(){
 }
 
 $(document).ready(function(){
-	$('#jq-submit').click(function(){
+	$('#jq-submit').on('click', function(){
 		if ( ($('#jq-word').val() != 0) && ($('#jq-word').val().length != 0) ){
 			$("#jq-output .jq-phrase").empty();
 			displayInfo();
