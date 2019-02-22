@@ -1,6 +1,9 @@
 Github Pages URL:
 https://andrew-sotiriou.github.io/text-manip/html/
 
+Version 3:
+Added in code for Speech Recognition.  Now you can click on the microphone and it will update the text box with what you say (desktop only).
+
 Version 2:
 Added initial commit of JQ version which will do the same as the JS version
 Only visual difference is displaying a horizontal bar chart instead of a doughnut
