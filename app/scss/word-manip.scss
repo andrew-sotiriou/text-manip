@@ -84,3 +84,15 @@ input[type=text]{
 	height: 60%;
 	padding-left: 15%;
 }
+
+.mic {
+	background-image: url(../images/microphone.png);
+	background-position: 3px 5px;
+	background-repeat: no-repeat;
+	background-size: contain;
+	display: inline-block;
+	height: 25px;
+	position: relative;
+	top: 4px;
+	width: 20px;
+}   
