@@ -103,6 +103,28 @@ function buildJQChart(){
 	});
 }
 
+const speechToText = () => {	
+	let finalTranscript = '';
+	let recognition = new window.webkitSpeechRecognition || new window.SpeechRecognition;
+	recognition.interimResults = true;
+    recognition.maxAlternatives = 10;
+    recognition.continuous = false;
+    recognition.lang = 'en-US';
+    recognition.onresult = (event) => {
+		let interimTranscript = '';
+		for (let i = event.resultIndex, len = event.results.length; i < len; i++) {
+			let transcript = event.results[i][0].transcript;
+			if (event.results[i].isFinal) {
+				finalTranscript += transcript;
+			} else {
+				interimTranscript += transcript;
+			}
+		}
+		$('#jq-word').val(finalTranscript);
+	}
+	recognition.start();
+};
+
 $(document).ready(function(){
 	$('#jq-submit').on('click', function(){
 		if ( ($('#jq-word').val() != 0) && ($('#jq-word').val().length != 0) ){
@@ -113,5 +135,9 @@ $(document).ready(function(){
 			$$("#jq-output .jq-phrase").empty();
 			$("#jq-output").append("The box above is empty and lonely.");
 		}
+	});
+
+	$('#right .mic').on('click', function(){
+		speechToText();
 	});
 });
