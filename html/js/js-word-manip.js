@@ -21,7 +21,32 @@ document.addEventListener('DOMContentLoaded', function(event) {
 			writeInfo(nameValue,jsoutput);
 		}
 	});
-})
+});
+
+document.addEventListener('DOMContentLoaded', function(event) {
+	var button = document.querySelector("span.mic");
+	button.addEventListener("click", function() {
+		window.SpeechRecognition = window.webkitSpeechRecognition || window.SpeechRecognition;
+		let finalTranscript = '';
+		let recognition = new window.SpeechRecognition();
+		recognition.interimResults = true;
+		recognition.maxAlternatives = 10;
+		recognition.continuous = false;
+		recognition.onresult = (event) => {
+			let interimTranscript = '';
+			for (let i = event.resultIndex, len = event.results.length; i < len; i++) {
+				let transcript = event.results[i][0].transcript;
+				if (event.results[i].isFinal) {
+					finalTranscript += transcript;
+				} else {
+					interimTranscript += transcript;
+				}
+			}
+			document.getElementById("js-word").value = finalTranscript;
+		}
+		recognition.start();
+	});
+});
 
 //Checks for Palindrome
 function isPalindrome(string){
