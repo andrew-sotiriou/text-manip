@@ -5,18 +5,21 @@ var origWord,
 	myChartJQ,
 	keyArrayJQ=[],
 	valueArrayJQ=[],
+	colorArrayJQ = ['red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'violet'],
 	$displayOut = $("<div/>").attr("class","jq-phrase");
 
 function displayInfo(){
 	origWord = $('#jq-word').val().toLowerCase();
 	stripeWord = origWord.replace(/[^a-zA-Z]+/g, '');
 	reversed = stripeWord.split("").reverse().join("");
-	$displayOut.append( pElements("The word or phrase you wrote is: ",origWord) );
-	$displayOut.append( pElements("The word or phrase stripped of everything but letters: ",stripeWord) );
-	$displayOut.append( pElements("The length of the string is: ",stripeWord.length) );
+	$displayOut.append( pElements("The word or phrase you wrote is: ", origWord) );
+	$displayOut.append( pElements("The word or phrase stripped of everything but letters: ", stripeWord) );
+	$displayOut.append( pElements("The length of the string is: ", stripeWord.length) );
 	$displayOut.append( pElements("Is the word or phrase you wrote a palindrome? ", isPala() ) );
 	$displayOut.append( pElements("Amount of times each letter is used: ", "" ) );
 	$displayOut.append( pElements(letCount(), "" ) );
+	$displayOut.append( pElements("Change string to colors of rainbow: ", "" ) );
+	$displayOut.append( letterColor(origWord), "" );
 	$("#jq-output").append($displayOut);
 	buildJQChart();
 	keyArrayJQ=[];
@@ -53,6 +56,27 @@ function letCount(){
 	});
 	return printverjq;
 }
+
+const spanElements = (letter, num) => {
+	var newspan = $("<span/>").attr({'style': "color:"+colorArrayJQ[num]}).html(letter);
+	return newspan;
+}
+
+const letterColor = (string) => {
+	let colorArrPos = 0;
+	let newArr = string.split('');
+	let result = $("<p/>").attr("class","jqoutput-text");
+	newArr.forEach((letter, index) => {
+		if (letter == " "){
+			colorArrPos++;
+			result.append($("<span/>").html(letter));
+		}
+		else {
+			result.append(spanElements(letter, (index-colorArrPos)));
+		}
+	});	
+	return result;
+};
 
 function buildJQChart(){
 	var ctx = document.getElementById("JQChart").getContext('2d');

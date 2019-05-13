@@ -1,6 +1,7 @@
 var myChart;
 var keyArray=[];
 var valueArray=[];
+let colorArrayJS = ['red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'violet'];
 
 document.addEventListener('DOMContentLoaded', function(event) {
 	var button = document.querySelector("button#js-submit");
@@ -102,6 +103,14 @@ function createOutputElement(str){
     return newpar;
 }
 
+const createSpanElement = (letter, num) => {
+	let	newspan = document.createElement("span");
+	newspan.style.color = colorArrayJS[num];
+	let l = document.createTextNode(letter);
+    newspan.appendChild(l);
+    return newspan;
+}
+
 function writeInfo(word,populate){
 	var nospaceword = word.replace(/[^A-Za-z]/g, '').toLowerCase();
 	var phrase = document.createElement("div");
@@ -113,6 +122,9 @@ function writeInfo(word,populate){
 	phrase.appendChild(createOutputElement("Amount of times each letter is used: "));
 	var totalletters = objectToString(letterCount(nospaceword));
 	phrase.appendChild(createOutputElement(totalletters));
+	phrase.appendChild(createOutputElement("Change string to colors of rainbow: "));
+	let colorLetters = addColorToLetter(word);
+	phrase.appendChild(colorLetters);
 	var sp2 = document.getElementById("text-placeholder");
 	var parentDiv = sp2.parentNode;
 	parentDiv.insertBefore(phrase, sp2);
@@ -145,3 +157,19 @@ function buildJSChart(){
 		}
 	});
 }
+
+const addColorToLetter = (str) => {
+	let colorArrayPos = 0;
+	let strToArray = str.split('');
+	let response = document.createElement("p");
+	strToArray.forEach((letter, index) => {
+		if (letter == " ") { 
+			colorArrayPos++;
+			response.appendChild(document.createTextNode(letter));
+		}
+		else {
+			response.appendChild(createSpanElement(letter, (index-colorArrayPos)));
+		}
+	});	
+	return response;
+};
